@@ -18,11 +18,11 @@ pipeline {
         stage('Build Docker Image') {
     steps {
         sh '''
-        docker build -t sidduthatikanti93/hostel-booking:latest \
-        -f frontend/Dockerfile frontend
+        docker build -t sidduthatikanti93/hostel-booking:latest .
         '''
     }
 }
+
 
 
         stage('Docker Login') {
