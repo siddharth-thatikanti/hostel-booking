@@ -16,12 +16,14 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            steps {
-                sh '''
-                docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
-                '''
-            }
-        }
+    steps {
+        sh '''
+        docker build -t sidduthatikanti93/hostel-booking:latest \
+        -f frontend/Dockerfile frontend
+        '''
+    }
+}
+
 
         stage('Docker Login') {
             steps {
