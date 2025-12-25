@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/siddharth/hostelbooking.git'
+        git 'https://github.com/siddharth-thatikanti/hostelbooking.git'
       }
     }
 
@@ -24,9 +24,9 @@ pipeline {
       steps {
         sh '''
         ssh azureuser@<PUBLIC_IP> << EOF
-        docker pull yourdockerhub/staymate:latest
-        docker stop staymate || true
-        docker rm staymate || true
+        docker pull sidduthatikanti/hostel-booking:latest
+        docker stop hostel-booking || true
+        docker rm hostel-booking || true
         docker run -d -p 80:80 --name hostel-booking sidduthatikanti93/hostel-booking:latest
         EOF
         '''
